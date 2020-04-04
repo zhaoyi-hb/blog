@@ -26,8 +26,8 @@ export default {
   data () {
     return {
       loginForm: {
-        username: 'admin',
-        password: 'admin'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [
@@ -58,6 +58,8 @@ export default {
         window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
         console.log(res)
+        const da = await this.$http.post('user/show')
+        console.log(da)
       })
     }
   }
